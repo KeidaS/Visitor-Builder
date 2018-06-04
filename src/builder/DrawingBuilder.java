@@ -3,6 +3,7 @@ package builder;
 import figures.Drawing;
 import figures.Figure;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DrawingBuilder {
@@ -13,13 +14,14 @@ public class DrawingBuilder {
     public DrawingBuilder(double x, double y) {
         this.x = x;
         this.y = y;
+        this.list = new ArrayList<>();
     }
 
     public void addFigure(Figure figure) {
-        list.add(figure);
+        this.list.add(figure);
     }
 
     public Drawing create() {
-        return new Drawing(x, y, list);
+        return new Drawing(this.x, this.y, this.list);
     }
 }
