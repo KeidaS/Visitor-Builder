@@ -1,3 +1,7 @@
+package visitor;
+
+import figures.*;
+
 public class AreaDoubler implements Visitor {
     private Figure figure;
 

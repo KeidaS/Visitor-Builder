@@ -1,3 +1,6 @@
+package figures;
+import visitor.*;
+
 public abstract class Figure {
     double x;
     double y;

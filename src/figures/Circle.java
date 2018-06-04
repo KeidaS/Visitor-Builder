@@ -1,4 +1,7 @@
-public class Circle extends Figure{
+package figures;
+import visitor.*;
+
+public class Circle extends Figure {
     double r;
 
     public Circle(double x, double y, double r) {

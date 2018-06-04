@@ -1,3 +1,6 @@
+package figures;
+import visitor.*;
+
 public class Rectangle extends Figure {
     double width;
     double height;

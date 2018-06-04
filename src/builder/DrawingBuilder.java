@@ -1,3 +1,8 @@
+package builder;
+
+import figures.Drawing;
+import figures.Figure;
+
 import java.util.List;
 
 public class DrawingBuilder {
