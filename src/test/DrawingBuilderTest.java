@@ -18,6 +18,7 @@ public class DrawingBuilderTest {
     public void initialize() {
         circle = new Circle (5,5,5);
         rectangle = new Rectangle(6, 6, 8, 8);
+
     }
 
     @Test
@@ -29,5 +30,18 @@ public class DrawingBuilderTest {
         List<Figure> figures = drawing.getComponents();
         assertSame(figures.get(0), circle);
         assertSame(figures.get(1), rectangle);
+    }
+    @Test
+    public void testDrawingBuilderWithDrawing() {
+        DrawingBuilder drawingBuilder = new DrawingBuilder(5, 5);
+        drawingBuilder.addFigure(circle);
+        drawingBuilder.addFigure(rectangle);
+        Drawing drawing = drawingBuilder.create();
+        drawingBuilder.addFigure(drawing);
+        Drawing drawing1 = drawingBuilder.create();
+        List<Figure> figures = drawing1.getComponents();
+        assertSame(figures.get(0), circle);
+        assertSame(figures.get(1), rectangle);
+        assertSame(figures.get(2), drawing);
     }
 }
