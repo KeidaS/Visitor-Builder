@@ -8,7 +8,6 @@ import builder.DrawingBuilder;
 import figures.*;
 import visitor.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AreaDoublerTest {
@@ -34,7 +33,6 @@ public class AreaDoublerTest {
         assertEquals(12.727922061, circle.getR(), 1);
         assertEquals(9, circle.getX(), 1);
         assertEquals(9, circle.getY(), 1);
-
     }
 
     @Test
@@ -52,13 +50,15 @@ public class AreaDoublerTest {
     public void testAreaDoublerWithDrawing() {
         AreaDoubler areaDoubler = new AreaDoubler();
         drawing.accept(areaDoubler);
+        drawing = (Drawing) areaDoubler.getResult();
         List<Figure> figures = drawing.getComponents();
         circle = (Circle) figures.get(0);
-        areaDoubler.getResult();
         rectangle = (Rectangle) figures.get(1);
-        assertEquals(12.727922061,circle.getR(), 1);
-        assertEquals(11.313708499,rectangle.getWidth(), 1);
-        assertEquals(11.313708499,rectangle.getHeight(), 1);
-    }
+        assertEquals(12.727922061, circle.getR(), 1);
+        assertEquals(11.313708499, rectangle.getWidth(), 1);
+        assertEquals(11.313708499, rectangle.getHeight(), 1);
+        assertEquals(5, drawing.getX(), 1);
+        assertEquals(5, drawing.getY(), 1);
 
+    }
 }

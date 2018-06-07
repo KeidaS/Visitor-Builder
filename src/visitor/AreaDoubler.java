@@ -2,8 +2,12 @@ package visitor;
 
 import figures.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AreaDoubler implements Visitor {
     private Figure figure;
+    private List<Figure> list = new ArrayList<>();
 
     @Override
     public void visit(Rectangle r) {
@@ -21,7 +25,9 @@ public class AreaDoubler implements Visitor {
     public void visit(Drawing d) {
         for (Figure f: d.getComponents()){
             f.accept(this);
+            list.add(this.getResult());
         }
+        this.figure = new Drawing(d.getX(), d.getY(), list);
     }
 
     public Figure getResult() {
