@@ -20,7 +20,13 @@ public class DrawingBuilderTest {
         rectangle = new Rectangle(6, 6, 8, 8);
 
     }
-
+    @Test
+    public void testEmptyDrawingBuilder() {
+        DrawingBuilder drawingBuilder = new DrawingBuilder(5, 5);
+        Drawing drawing = drawingBuilder.create();
+        List<Figure> figures = drawing.getComponents();
+        assertEquals(figures.size(), 0);
+    }
     @Test
     public void testDrawingBuilder() {
         DrawingBuilder drawingBuilder = new DrawingBuilder(5, 5);
@@ -30,6 +36,7 @@ public class DrawingBuilderTest {
         List<Figure> figures = drawing.getComponents();
         assertSame(figures.get(0), circle);
         assertSame(figures.get(1), rectangle);
+        assertEquals(figures.size(), 2);
     }
     @Test
     public void testDrawingBuilderWithDrawing() {
@@ -43,5 +50,16 @@ public class DrawingBuilderTest {
         assertSame(figures.get(0), circle);
         assertSame(figures.get(1), rectangle);
         assertSame(figures.get(2), drawing);
+        assertEquals(figures.size(), 3);
+    }
+    @Test (expected = UnsupportedOperationException.class)
+    public void testDrawingUnmodifiableList() throws UnsupportedOperationException{
+        DrawingBuilder drawingBuilder = new DrawingBuilder(5, 5);
+        drawingBuilder.addFigure(circle);
+        drawingBuilder.addFigure(rectangle);
+        Drawing drawing = drawingBuilder.create();
+        List<Figure> figures = drawing.getComponents();
+        Circle circle1 = new Circle (6,6,6);
+        figures.add(circle1);
     }
 }

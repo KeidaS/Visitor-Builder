@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Drawing extends Figure {
-    List<Figure> list;
+    private List<Figure> list;
+
     public Drawing(double x, double y, List<Figure> list) {
         super(x, y);
         this.list = list;
