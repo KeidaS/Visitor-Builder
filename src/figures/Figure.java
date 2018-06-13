@@ -2,8 +2,8 @@ package figures;
 import visitor.*;
 
 public abstract class Figure {
-    double x;
-    double y;
+    private double x;
+    private double y;
 
     public Figure(double x, double y) {
         this.x = x;

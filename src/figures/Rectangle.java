@@ -2,8 +2,8 @@ package figures;
 import visitor.*;
 
 public class Rectangle extends Figure {
-    double width;
-    double height;
+    private double width;
+    private double height;
 
     public Rectangle(double x, double y, double width, double height) {
         super(x, y);
