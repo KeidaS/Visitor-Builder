@@ -9,19 +9,19 @@ import java.util.List;
 public class DrawingBuilder {
     private final double x;
     private final double y;
-    private List<Figure> list;
+    private List<Figure> figures;
 
     public DrawingBuilder(double x, double y) {
         this.x = x;
         this.y = y;
-        this.list = new ArrayList<>();
+        this.figures = new ArrayList<>();
     }
 
     public void addFigure(Figure figure) {
-        this.list.add(figure);
+        this.figures.add(figure);
     }
 
     public Drawing create() {
-        return new Drawing(this.x, this.y, this.list);
+        return new Drawing(this.x, this.y, this.figures);
     }
 }
